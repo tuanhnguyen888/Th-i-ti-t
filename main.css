@@ -1,0 +1,437 @@
+*, *:before, *:after{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html{
+	/* chuyeển cảnh mượt hơn */
+	scroll-behavior: smooth; 
+}
+
+body{
+	font-family:  "Roboto", sans-serif;
+}
+
+img{
+	max-width: 100%;
+	width: 100%;
+}
+
+
+#overlay{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.4);
+	z-index: 4;
+	display: none;
+}
+
+#overlay.show{
+	display: initial;
+}
+
+.container{
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+button {
+	text-align: center;
+	color: whitesmoke;
+	background-color: var(--gray);
+	padding: 0.8rem 2.5rem;
+	border: : none;
+	border-radius: 100px;
+	cursor: pointer;
+	transition: var(--smooth);
+}
+
+button:hover{
+	background-color: var(--green-light);
+	transition: var(--smooth);
+}
+
+:root{
+	--green : #0bb005;
+	--green-light : #5fb35d;
+	--gray :#3f3d56;
+	--smooth : all .3s ease-in;
+}
+
+/*header*/
+
+header{
+	position: absolute;
+	width: 100%;
+}
+
+.navbar{
+	display: flex;
+	justify-content: space-between; // chia khoang cach trong 1 hang 
+	align-items: center;
+	padding: 20px 0;
+}
+
+.navbar_logo img{
+	width: 57px;
+	height: 57px;
+	object-fit: cover;
+	z-index : 5 ;
+}
+
+.navbar_links{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 40%;
+	height: 100%;
+	background-color: var(--gray);
+	z-index : 5 ;   /*để element nằm ở trên*/
+	transition: var(--smooth);
+	transform:  translateX(-100%);
+	opacity: 0;
+
+}
+
+.navbar_links.navbar_open{
+	transform: translateX(0);
+	opacity: 1;
+	transition: var(--smooth);
+}
+
+.navbar_link{
+	list-style: none;
+	margin: 20px;
+}
+
+.navbar_link a{
+	text-decoration: none;
+	color: whitesmoke;
+	font-weight: 300;
+	transition: var(--smooth);
+}
+
+.navbar_link a:hover{
+	color: var(--green);
+	transition: var(--smooth);
+}
+
+.navbar_btn{
+	font-size:  1rem;
+	background-color:  var(--green);
+	margin-left: 45px;
+}
+
+/*menu button*/
+
+.navbar_icons{
+	display:  flex;
+	justify-content:  center;
+	align-items: center;
+	width: 80px;
+	height:  80px ;
+	cursor:  pointer;
+	transition: var(--smooth);
+	z-index: 6;
+	}
+
+.navbar_icon {
+	
+	font-size: 45px;
+	transition: var(--smooth);
+	position: relative;
+
+}
+
+@media(min-width:  64rem){
+	.navbar_links{
+		position: initial;
+		transform: translateX(0);
+		opacity: 1;
+		background-color: transparent;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+	}
+
+	.navbar_link a{
+		color:  var(--gray);
+	}
+
+	.navbar_icons{
+		display: none;
+	}
+
+	.navbar_btn{
+		background-color: var(--gray) ;
+	}
+}
+
+#banner{
+	position: relative;
+	height: 100vh;
+	display: flex;
+	align-items:center;
+}
+
+.banner_img {
+	position: absolute;
+	top : -80px;
+	right: 0;
+	z-index: 1;
+}
+
+.banner_heading{
+
+	max-width: 350px;
+	margin: 0 auto;
+	margin-top: 300px;
+	text-align: center;
+	color: var(--gray);
+
+}
+
+.banner_heading h1{
+	
+	font-size: 2.25rem;
+	padding-top: 4em;
+	margin-bottom: 0.4em;
+}
+
+.banner_heading p{
+	font-weight: 300;
+	line-height: 2em;
+	margin-bottom: 1em;
+}
+.banner_socials{
+	margin-top: 1em;
+	display: flex;
+	justify-content: space-evenly;
+	font-size: 1.5rem;
+}
+
+.banner_socials a{
+	color:  var(--gray);
+	transition: var(--smooth);
+}
+
+.banner_socials a:hover{
+	color: var(--green);
+	transition: var(--smooth);
+}
+
+@media(min-width:  64rem){
+	.banner_heading{
+		text-align: initial;
+		margin: 0;
+		padding-top: 0;
+		margin-top: -200px;
+	}
+
+	.banner_socials{
+		justify-content: flex-start;
+	}
+
+	.banner_socials a{
+		margin-right: 45px;
+	}
+
+	.banner_img{
+		max-width: 1000px;
+		width: 60%;
+	}
+}
+
+
+/*	THINGS */
+#things{
+	position: relative;
+	overflow-x: hidden;
+	margin-top: 15em;
+}
+
+#things h2{
+	text-align: center;
+	color:  var(--gray);
+	margin-bottom: 3em;
+}
+
+.thing_item{
+	margin:  3em 0;
+}
+
+.thing_item img{
+	padding-top: 4em;
+}
+
+.thing_item-heading{
+	text-align: center;
+	color: var(--gray);
+}
+
+.thing_item-heading p{
+	font-size: 300;
+	line-height: 2em;
+	max-width: 300px;
+	margin: 0 auto;
+	padding-top: 1em;
+
+}
+
+@media(min-width:  64rem){
+	.thing_item{
+		display: flex;
+		justify-content: space-between;
+		margin: 0;
+		align-items: center;
+		
+	}
+
+
+	.thing_item img{
+		width: 40%;
+		padding-bottom: 0;
+	}
+
+	.thing_item-heading{
+		width: 45%;
+		text-align: initial;
+	}
+
+	.thing_item-heading p{
+		max-width: 500px;
+		margin: 0;
+	}
+
+	.thing_item:nth-child(odd) img{
+		order : 2;
+		width:  40%;
+		padding-bottom: 0;
+	}
+
+	.thing_item-heading:nth-child(odd) {
+		order : 1;
+		width:  45%;
+		text-align: initial;
+	}
+}
+
+/*Works*/
+
+#works{
+	padding-top: 10em;
+	position: relative;
+	overflow-x: hidden;  /*an ben ngoai doc chieu x*/
+
+}
+
+#works h2{
+	text-align: center;
+	color: var(--gray);
+}
+
+.work_img-single{
+	margin: 2em 0;
+}
+
+.work_img-single:nth-child(odd){
+	padding-top: 5em;
+}
+
+.work_img-single:nth-child(3){
+	margin-top: -5em;
+}
+
+.works_btn{
+	text-align: center;
+	margin-top: 8em;
+}
+
+.works_btn button{
+	font-size: 1rem;
+}
+
+@media(min-width:  64rem){
+	#works h2{
+		margin-bottom: 3em ;
+	}
+
+	.works_img{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.work_img-single{
+		margin: 0 5em;
+		width: 35%;
+	}
+
+
+	.work_img-single:nth-child(3){
+		margin-top: 0;
+	}
+}
+
+
+/*footer*/
+
+#footer{
+	overflow: hidden;
+	position: relative;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+}
+
+.footer_img {
+	position: absolute;
+	top: -50px;
+	right: 0;
+	transform: translateX(25%);
+	z-index: -1;
+}
+
+.footer_heading{
+	max-width: 400px;
+	margin: 0 auto;
+	text-align: center;
+	color: var(--gray);
+}
+
+.footer_contact{
+	margin-top: 2em ;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.footer_contact a{
+	text-decoration: none;
+	color: var(--gray);
+}
+
+@media(min-width:  64rem){
+	.footer_img{
+		top: -100px;
+		right: 0;
+		transform: translateX(32%);
+		width: 60%;
+	}
+
+	.footer_heading{
+		text-align:  initial;
+		margin: 0;
+	}
+
+	.footer_contact{
+		display: flex;
+		justify-content: space-between;
+	}
+
+}
